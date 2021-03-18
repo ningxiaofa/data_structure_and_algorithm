@@ -46,24 +46,24 @@ class Solution {
 
         // 合并后 $l1 和 $l2 最多只有一个还未被合并完，我们直接将链表末尾指向未合并完的链表即可
         $prev->next = $l1 == null ? $l2 : $l1;
-
         return $prehead->next;
     }
     // 解题思路： https://leetcode-cn.com/problems/merge-two-sorted-lists/solution/hua-jie-suan-fa-21-he-bing-liang-ge-you-xu-lian-bi/  说的很清楚
 }
 
-$list1 = constructNodeList();
+$list1 = constructNodeList(10);
 $list2 = constructNodeList();
 var_export($list1);
 print "<hr/>";
+var_export($list2);
+print "<hr/>";
 
 $solution = new Solution();
-$ret = $solution->mergeTwoLists_recursive($list1, $list2);
-// $ret1 = $solution->mergeTwoLists_iterate($list1, $list2);
-
-var_export($ret);
+// $ret = $solution->mergeTwoLists_recursive($list1, $list2);
+// var_export($ret);
 // print "<hr/>";
-// var_export($ret1);
+$ret1 = $solution->mergeTwoLists_iterate($list1, $list2);
+var_export($ret1);
 
 
 // Out:

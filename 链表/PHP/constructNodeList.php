@@ -5,16 +5,17 @@ require_once(__DIR__.'/ListNode.php');
 /**
  * 方式一: 利用数组, 两次循环处理, 处理后的数组元素每个元素都是链表结构 ---这里不是很推荐
  * @param number $num
- * @param position $pos -- 有环链表的闭合点 [表示链表尾连接到链表中的位置（索引从 0 开始)]
+ * @param number|null $pos -- 有环链表的闭合点 [表示链表尾连接到链表中的位置（索引从 0 开始)]
+ * @param number $random -- 是否使用随机数
  * @return ListNode
  */
-function constructNodeList($num = 5, $pos = null)
+function constructNodeList($num = 5, $pos = null, $random = false)
 {
 	$nodeArray = [];
 	$i = 1;
 
 	while($i <= $num){
-		$nodeArray[] = new ListNode($i, null);
+		$nodeArray[] = new ListNode($random ? rand(0, $num) : $i, null);
 		$i++;
 	}
 	// var_dump($nodeArray);
